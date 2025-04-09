@@ -1,4 +1,3 @@
-
 const button = document.getElementById('openBtn');
 const images = document.getElementById('imageContainer');
 
