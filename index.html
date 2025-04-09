@@ -35,12 +35,18 @@
 </style>
 
 <div class="custom-audio">
-  <button onclick="document.getElementById('audioPlayer').play()">Play</button>
-  <button onclick="document.getElementById('audioPlayer').pause()">Pause</button>
-  <audio id="audioPlayer" preload="auto">
-    <source src="Тбили Теплый - Не уходи.m4a" type="audio/m4a">
-    Ваш браузер не поддерживает элемент audio.
-  </audio>
+<button onclick="playAudio()">Play</button>
+<audio id="audioPlayer" preload="auto">
+  <source src="Тбили Теплый - Не уходи.m4a" type="audio/m4a">
+  Ваш браузер не поддерживает элемент audio.
+</audio>
+
+<script>
+  function playAudio() {
+    var audio = document.getElementById('audioPlayer');
+    audio.play();
+  }
+</script>
 </div>
 
   <div class="container">
