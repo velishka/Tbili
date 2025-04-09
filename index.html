@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio autoplay>
+  <audio id="audioPlayer">
   <source src="Тбили Теплый - Не уходи.m4a" type="audio/m4a">
   Ваш браузер не поддерживает элемент audio.
 </audio>
+<button onclick="document.getElementById('audioPlayer').play()">Play</button>
 
   <div class="container">
     <h1 id="typewriter"></h1>
