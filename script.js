@@ -1,38 +1,24 @@
+document.getElementById('openBtn').addEventListener('click', function() {
+  let container = document.getElementById('imageContainer');
+  container.classList.remove('hidden');
+  
+  let emojiContainer = document.getElementById('emojiContainer');
 
-const button = document.getElementById('openBtn');
-const images = document.getElementById('imageContainer');
+  // Удаляем старые эмодзи, если они есть
+  emojiContainer.innerHTML = '';
 
-button.addEventListener('click', () => {
-  images.classList.remove('hidden');
-  startHeartAnimation();
-  button.style.display = 'none';
-});
+  // Количество эмодзи
+  let emojiCount = 10;
 
-function startHeartAnimation() {
-  setInterval(() => {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.backgroundColor = getRandomColor();
-    document.body.appendChild(heart);
-    setTimeout(() => {
-      heart.remove();
-    }, 4000);
-  }, 200);
-}
-
-function getRandomColor() {
-  const colors = ['#ff4da6', '#ff6666', '#ffcc00', '#66ff99', '#66b3ff', '#c266ff'];
-  return colors[Math.floor(Math.random() * colors.length)];
-}
-
-const text = "Ты делаешь этот мир красивее...";
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typewriter").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 100);
+  // Создание новых эмодзи и их анимация
+  for (let i = 0; i < emojiCount; i++) {
+    let emojiElement = document.createElement('span');
+    emojiElement.classList.add('emoji');
+    emojiElement.textContent = Math.random() > 0.5 ? '❤️‍🔥' : '❤️'; // случайно выбираем эмодзи
+    emojiElement.style.left = `${Math.random() * 80}%`; // случайное горизонтальное положение в пределах контейнера
+    emojiElement.style.top = `${Math.random() * 80}%`; // случайное вертикальное положение в пределах контейнера
+    emojiElement.style.animationDuration = `${Math.random() * 5 + 5}s`; // случайная продолжительность анимации
+    emojiElement.style.animationDelay = `${Math.random() * 2}s`; // случайная задержка анимации
+    emojiContainer.appendChild(emojiElement);
   }
-}
-setTimeout(typeWriter, 1000);
+});
